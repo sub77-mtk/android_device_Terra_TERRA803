@@ -8,7 +8,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/Terra/TERRA803/device_TERRA803.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := TERRA_803
+PRODUCT_DEVICE := TERRA803
 PRODUCT_NAME := cm_TERRA803
 PRODUCT_BRAND := Terra
 PRODUCT_MODEL := TERRA_803
