@@ -7,9 +7,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := --compiler-filter=interpret-only
 # $(call add-product-dex-preopt-module-config,services,--compiler-filter=space)
 
-$(call inherit-product-if-exists, vendor/Xiaomi/HM2014011/HM2014011-vendor.mk)
+$(call inherit-product-if-exists, vendor/Terra/TERRA803/TERRA803-vendor.mk)
 
-LOCAL_PATH := device/Xiaomi/HM2014011
+LOCAL_PATH := device/Terra/TERRA803
 
 PRODUCT_CHARACTERISTICS := default
 
@@ -156,8 +156,8 @@ PRODUCT_PROPERTY_OVERRIDES := \
 	persist.service.debuggable=1 \
 	persist.mtk.wcn.combo.chipid=-1
 
-PRODUCT_NAME := full_HM2014011
-PRODUCT_DEVICE := HM2014011
+PRODUCT_NAME := full_TERRA803
+PRODUCT_DEVICE := TERRA803
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280

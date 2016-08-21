@@ -1,7 +1,7 @@
 # inherit from the proprietary version
--include vendor/Xiaomi/HM2014011/BoardConfigVendor.mk
+-include vendor/Terra/TERRA803/BoardConfigVendor.mk
 
-LOCAL_PATH := device/Xiaomi/HM2014011
+LOCAL_PATH := device/Terra/TERRA803
 
 # Board
 TARGET_BOARD_PLATFORM := mt6582
@@ -30,7 +30,7 @@ TARGET_USERIMAGES_USE_EXT4:=true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 # Assert
-# TARGET_OTA_ASSERT_DEVICE := HM2014011,wt93807
+TARGET_OTA_ASSERT_DEVICE := TERRA803,TERRA_803
 
 # MTK HARDWARE
 BOARD_HAS_MTK_HARDWARE := true
@@ -41,7 +41,7 @@ COMMON_GLOBAL_CPPFLAGS += -DMTK_HARDWARE
 BLOCK_BASED_OTA :=false
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/Xiaomi/HM2014011/ril/
+BOARD_RIL_CLASS := ../../../device/Terra/TERRA803/ril/
 
 BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_CONNECTIVITY_MODULE := conn_soc
@@ -64,12 +64,12 @@ TARGET_KMODULES := true
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
-# Kernel 
+# Kernel
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 #TARGET_KERNEL_CONFIG := 2014011_debug_defconfig
-#TARGET_KERNEL_SOURCE := kernel/Xiaomi/HM2014011
+#TARGET_KERNEL_SOURCE := kernel/Terra/TERRA803
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/MTKbootimg.mk
 BOARD_CUSTOM_BOOTIMG := true
@@ -133,7 +133,7 @@ BOARD_EGL_NEEDS_FNW := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
 # Selinux
-BOARD_SEPOLICY_DIRS += device/Xiaomi/HM2014011/sepolicy
+BOARD_SEPOLICY_DIRS += device/Terra/TERRA803/sepolicy
 
 # WIFI
 #BOARD_WLAN_DEVICE := MediaTek
@@ -160,4 +160,4 @@ USE_MINIKIN := true
 POLICYVERS := 26
 
 # Hack for build
-$(shell mkdir -p /and/cm-mt/out/target/product/HM2014011/obj/KERNEL_OBJ/usr)
+$(shell mkdir -p /and/cm-mt/out/target/product/TERRA803/obj/KERNEL_OBJ/usr)
