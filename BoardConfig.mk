@@ -161,3 +161,6 @@ POLICYVERS := 26
 
 # Hack for build
 $(shell mkdir -p /and/cm-mt/out/target/product/TERRA803/obj/KERNEL_OBJ/usr)
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)

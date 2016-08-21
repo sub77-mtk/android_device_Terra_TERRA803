@@ -170,4 +170,7 @@ PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
 
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/boot.img:install/kernel/boot.img
+
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
