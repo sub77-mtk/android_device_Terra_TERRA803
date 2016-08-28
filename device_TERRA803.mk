@@ -72,6 +72,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.mt6582 \
+    fstab.fat \
+    fstab \
     init.recovery.mt6582.rc \
     init.mt6582.rc \
     init.mt6582_common.rc \
@@ -79,8 +81,7 @@ PRODUCT_PACKAGES += \
     ueventd.mt6582.rc \
     init.mt6582.usb.rc \
     enableswap.sh \
-    factory_init.rc \
-    twrp.fstab
+    factory_init.rc
 
 # Kernel
 PRODUCT_COPY_FILES += \
@@ -143,7 +144,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_PROPERTY_OVERRIDES := \
-	ro.mediatek.version.release=ALPS.W10.24.p0 \
+	ro.mediatek.version.release=ALPS.KK1.MP1.V2.11 \
 	ro.mediatek.platform=MT6582 \
 	ro.mediatek.chip_ver=S01 \
 	ro.mediatek.version.branch=KK1.MP1 \
@@ -154,14 +155,29 @@ PRODUCT_PROPERTY_OVERRIDES := \
 	persist.sys.usb.config=mtp,adb \
 	persist.service.adb.enable=1 \
 	persist.service.debuggable=1 \
-	persist.mtk.wcn.combo.chipid=-1
+	persist.mtk.wcn.combo.chipid=-1 \
+
+# Debuggable
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
+    ro.secure=0 \
+    ro.adb.secure=0 \
+    ro.allow.mock.location=1 \
+    ro.debuggable=1 \
+    ro.zygote=zygote32 \
+    persist.sys.usb.config=mtp,adb
+
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0 \
+    ro.allow.mock.location=1 \
+    ro.debuggable=1
 
 PRODUCT_NAME := full_TERRA803
 PRODUCT_DEVICE := TERRA803
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_WIDTH := 800
 
 PRODUCT_AAPT_CONFIG := hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
@@ -169,8 +185,5 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/boot.img:install/kernel/boot.img
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
