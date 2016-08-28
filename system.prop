@@ -1,5 +1,5 @@
 #
-# system.prop for TERRA803
+# system.prop for terrapad803
 #
 service.adb.root=1
 ro.sf.lcd_density=320

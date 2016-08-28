@@ -1,6 +1,6 @@
 ----Thanks for xen0n, who are contributing to the working CyanogenMod of MTK hardware.---
 
-This is a device tree for Terra Redmi_1s_TD(TERRA803) which is based on MT6582 SoC. Powered by ferhung.
+This is a device tree for terra Redmi_1s_TD(terrapad803) which is based on MT6582 SoC. Powered by ferhung.
 # Build
 
 * init
@@ -13,7 +13,7 @@ This is a device tree for Terra Redmi_1s_TD(TERRA803) which is based on MT6582 S
         
         # source build/envsetup.sh
 
-        # brunch cm_TERRA803-userdebug
+        # brunch cm_terrapad803-userdebug
 
 # Limitations
 

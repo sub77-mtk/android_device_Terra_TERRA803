@@ -1,7 +1,7 @@
 # inherit from the proprietary version
--include vendor/Terra/TERRA803/BoardConfigVendor.mk
+-include vendor/terra/terrapad803/BoardConfigVendor.mk
 
-LOCAL_PATH := device/Terra/TERRA803
+LOCAL_PATH := device/terra/terrapad803
 
 # Board
 TARGET_BOARD_PLATFORM := mt6582
@@ -30,7 +30,7 @@ TARGET_USERIMAGES_USE_EXT4:=true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := TERRA803,TERRA_803
+TARGET_OTA_ASSERT_DEVICE := terrapad803,TERRA_803
 
 # MTK HARDWARE
 BOARD_HAS_MTK_HARDWARE := true
@@ -41,7 +41,7 @@ COMMON_GLOBAL_CPPFLAGS += -DMTK_HARDWARE
 BLOCK_BASED_OTA :=false
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/Terra/TERRA803/ril/
+BOARD_RIL_CLASS := ../../../device/terra/terrapad803/ril/
 
 BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_CONNECTIVITY_MODULE := conn_soc
@@ -68,11 +68,10 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-#TARGET_KERNEL_CONFIG := 2014011_debug_defconfig
-#TARGET_KERNEL_SOURCE := kernel/Terra/TERRA803
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/MTKbootimg.mk
 BOARD_CUSTOM_BOOTIMG := true
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100 --board P301_KK_V0.06
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/recovery.fstab
@@ -82,9 +81,9 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 # TWRP
 #RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
-DEVICE_RESOLUTION := 720x1280
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+DEVICE_RESOLUTION := 800x1280
+#TARGET_SCREEN_HEIGHT := 1280
+#TARGET_SCREEN_WIDTH := 800
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0/gadget/lun%d/file
@@ -94,16 +93,13 @@ TW_INTERNAL_STORAGE_PATH := "/sdcard"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-TW_CRYPTO_FS_TYPE := "ext4"
-TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p7"
-TW_CRYPTO_MNT_POINT := "/data"
-TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
+#TW_CRYPTO_FS_TYPE := "ext4"
+#TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p7"
+#TW_CRYPTO_MNT_POINT := "/data"
+#TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
 TW_EXCLUDE_SUPERSU := true
 TW_INCLUDE_FB2PNG := true
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
-TW_EXTRA_LANGUAGES := true
-TW_BUILD_ZH_CN_SUPPORT := true
-TW_DEFAULT_LANGUAGE := zh_CN
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -133,7 +129,7 @@ BOARD_EGL_NEEDS_FNW := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
 # Selinux
-BOARD_SEPOLICY_DIRS += device/Terra/TERRA803/sepolicy
+BOARD_SEPOLICY_DIRS += device/terra/terrapad803/sepolicy
 
 # WIFI
 #BOARD_WLAN_DEVICE := MediaTek
@@ -160,7 +156,4 @@ USE_MINIKIN := true
 POLICYVERS := 26
 
 # Hack for build
-$(shell mkdir -p /and/cm-mt/out/target/product/TERRA803/obj/KERNEL_OBJ/usr)
-
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
+$(shell mkdir -p /mnt/and/roms/cm-mtk/out/target/product/terrapad803/obj/KERNEL_OBJ/usr)
