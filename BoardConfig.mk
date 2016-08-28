@@ -156,4 +156,4 @@ USE_MINIKIN := true
 POLICYVERS := 26
 
 # Hack for build
-$(shell mkdir -p /mnt/and/roms/cm-mtk/out/target/product/terrapad803/obj/KERNEL_OBJ/usr)
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
