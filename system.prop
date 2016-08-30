@@ -85,3 +85,10 @@ persist.sys.strictmode.visual=0
 persist.sys.strictmode.disable=1
 
 qemu.hw.mainkeys=0
+
+# begin mediatek build properties
+ro.mediatek.version.release=ALPS.KK1.MP1.V2.11
+ro.mediatek.platform=MT6582
+ro.mediatek.chip_ver=S01
+ro.mediatek.version.branch=KK1.MP1
+ro.mediatek.version.sdk=2
