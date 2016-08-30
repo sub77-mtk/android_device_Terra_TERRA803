@@ -1,6 +1,8 @@
 # platform specific configuration items
 import /init.mt6582.usb.rc
 import /init.modem.rc
+import /init.no_ssd.rc
+
 
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug

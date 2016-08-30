@@ -71,17 +71,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Rootdir
 PRODUCT_PACKAGES += \
+    enableswap.sh \
+    factory_init.rc \
     fstab.mt6582 \
-    fstab.fat \
-    fstab \
-    init.recovery.mt6582.rc \
+    init.charging.rc \
+    init.modem.rc \
     init.mt6582.rc \
     init.mt6582_common.rc \
-    init.modem.rc \
-    ueventd.mt6582.rc \
     init.mt6582.usb.rc \
-    enableswap.sh \
-    factory_init.rc
+    init.recovery.mt6582.rc \
+    ueventd.mt6582.rc \
+    ueventd.rc
 
 # Kernel
 PRODUCT_COPY_FILES += \
