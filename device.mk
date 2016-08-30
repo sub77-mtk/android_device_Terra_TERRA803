@@ -172,8 +172,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.allow.mock.location=1 \
     ro.debuggable=1
 
-PRODUCT_NAME := full_terrapad803
-PRODUCT_DEVICE := terrapad803
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=200
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
