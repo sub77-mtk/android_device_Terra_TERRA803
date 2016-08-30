@@ -18,8 +18,6 @@ ro.telephony.default_network=0,1
 persist.dsds.enabled=true
 ro.dual.sim.phone=true
 mux.debuglog.enable=1
-rild.libpath=/system/lib/mtk-ril.so
-rild.libargs=-d /dev/ttyC0
 ril.specific.sm_cause=0
 ril.external.md=0
 ril.current.share_modem=2
@@ -33,8 +31,26 @@ ril.active.md=0
 ro.telephony.ril_class=MediaTekRIL
 ro.telephony.ril.config=fakeiccid
 
-ro.nfc.port=I2C
-mtknfc.status.type=unknow
+# begin mediatek build properties
+ro.mediatek.version.release=ALPS.KK1.MP1.V2.11
+ro.mediatek.platform=MT6582
+ro.mediatek.chip_ver=S01
+ro.mediatek.version.branch=KK1.MP1
+ro.mediatek.version.sdk=2
+# end mediatek build properties
+#
+# from out/target/product/c81s_ycl/obj/CUSTGEN/config/system.prop
+#
+#
+# system.prop for generic sdk
+#
+
+rild.libpath=/system/lib/mtk-ril.so
+rild.libargs=-d /dev/ttyC0
+
+# MTK, Infinity, 20090720 {
+wifi.interface=wlan0
+# MTK, Infinity, 20090720 }
 
 # MTK, mtk03034, 20101210 {
 ro.mediatek.wlan.wsc=1
@@ -86,9 +102,43 @@ persist.sys.strictmode.disable=1
 
 qemu.hw.mainkeys=0
 
-# begin mediatek build properties
-ro.mediatek.version.release=ALPS.KK1.MP1.V2.11
-ro.mediatek.platform=MT6582
-ro.mediatek.chip_ver=S01
-ro.mediatek.version.branch=KK1.MP1
-ro.mediatek.version.sdk=2
+#
+# ADDITIONAL_BUILD_PROPERTIES
+#
+persist.gemini.sim_num=1
+ro.gemini.smart_sim_switch=false
+ro.gemini.smart_3g_switch=0
+ril.specific.sm_cause=0
+bgw.current3gband=0
+ril.external.md=0
+ro.btstack=blueangel
+ro.sf.hwrotation=0
+ril.current.share_modem=1
+launcherplus.allappsgrid=2d
+curlockscreen=1
+ro.mediatek.gemini_support=false
+drm.service.enabled=true
+fmradio.driver.enable=1
+ril.first.md=1
+ril.flightmode.poweroffMD=1
+ril.telephony.mode=0
+dalvik.vm.mtk-stack-trace-file=/data/anr/mtk_traces.txt
+persist.mtk.anr.mechanism=1
+mediatek.wlan.chip=mediatek.wlan.module.postfix=_
+ril.radiooff.poweroffMD=0
+ro.config.notification_sound=Proxima.ogg
+ro.config.alarm_alert=Alarm_Classic.ogg
+ro.config.ringtone=Backroad.ogg
+persist.mtk.wcn.combo.chipid=-1
+ro.fota.oem=MTK_KK
+ro.fota.platform=MTK_KK
+ro.fota.type=phone
+ter.service.enable=0
+mediatek.extmd.usbport=0
+ro.lte.dc.support=0
+ril.active.md=0
+ro.setupwizard.mode=OPTIONAL
+ro.com.google.gmsversion=4.4_r5
+persist.sys.dalvik.vm.lib=libdvm.so
+net.bt.name=Android
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
