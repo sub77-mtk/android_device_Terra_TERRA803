@@ -8,13 +8,6 @@ persist.mtk.aee.aed=on
 ro.telephony.ril_class=MediaTekRIL
 ro.telephony.ril.config=fakeiccid
 
-# begin mediatek build properties
-ro.mediatek.version.release=ALPS.KK1.MP1.V2.11
-ro.mediatek.platform=MT6582
-ro.mediatek.chip_ver=S01
-ro.mediatek.version.branch=KK1.MP1
-ro.mediatek.version.sdk=2
-# end mediatek build properties
 #
 # from out/target/product/c81s_ycl/obj/CUSTGEN/config/system.prop
 #
@@ -73,7 +66,7 @@ ro.boot.selinux=disable
 # Disable dirty region for Mali
 debug.hwui.render_dirty_regions=false
 
-persist.sys.timezone=Asia/Shanghai
+#persist.sys.timezone=Asia/Shanghai
 persist.sys.strictmode.visual=0
 persist.sys.strictmode.disable=1
 
@@ -106,10 +99,6 @@ ril.radiooff.poweroffMD=0
 ro.config.notification_sound=Proxima.ogg
 ro.config.alarm_alert=Alarm_Classic.ogg
 ro.config.ringtone=Backroad.ogg
-persist.mtk.wcn.combo.chipid=-1
-ro.fota.oem=MTK_KK
-ro.fota.platform=MTK_KK
-ro.fota.type=phone
 ter.service.enable=0
 mediatek.extmd.usbport=0
 ro.lte.dc.support=0

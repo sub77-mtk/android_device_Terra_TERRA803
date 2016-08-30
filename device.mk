@@ -144,12 +144,12 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_PROPERTY_OVERRIDES := \
-	ro.mediatek.version.release=ALPS.KK1.MP1.V2.11 \
-	ro.mediatek.platform=MT6582 \
-	ro.mediatek.chip_ver=S01 \
-	ro.mediatek.version.branch=KK1.MP1 \
-	ro.mediatek.version.sdk=2 \
-	ro.telephony.sim.count=2 \
+	ro.mediatek.version.release=ALPS.KK1.MP1.V2.11
+	ro.mediatek.platform=MT6582
+	ro.mediatek.chip_ver=S01
+	ro.mediatek.version.branch=KK1.MP1
+	ro.mediatek.version.sdk=2
+	ro.telephony.sim.count=1 \
 	ro.allow.mock.location=0 \
 	ro.debuggable=1 \
 	persist.sys.usb.config=mtp,adb \
