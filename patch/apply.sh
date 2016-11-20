@@ -1,28 +1,31 @@
-build_root=$(pwd) # vendorsetup.sh is sourced by build/envsetup.sh in root of android build tree. Hope that nobody can correctly source it not from root of android tree.
+build_root=$(pwd)
 
-#. vendor/extra/tools/colors
+# Start 
+FETCH='bionic'
+FETCH_BRANCH='cm-14.0'
+FETCH_GIT='ferhung-mtk'
+FETCH_PRE='android'
+FETCH_DIR=${FETCH/\_//}
+FETCH_URL='https://github.com/'${FETCH_GIT}/${FETCH_PRE}_${FETCH}.git
+echo -e ${CL_BLU}"PULLING: URL: $FETCH_URL DIR: $FETCH_DIR BRANCH: $FETCH_BRANCH"${CL_RST}
+cd $build_root/$FETCH_DIR
+git pull $FETCH_URL $FETCH_BRANCH
+cd $build_root
+# Start
+FETCH='frameworks_av'
+FETCH_BRANCH='cm-14.0'
+FETCH_GIT='ferhung-mtk'
+FETCH_PRE='android'
+FETCH_DIR=${FETCH/\_//}
+FETCH_URL='https://github.com/'${FETCH_GIT}/${FETCH_PRE}_${FETCH}.git
+echo -e ${CL_BLU}"PULLING: URL: $FETCH_URL DIR: $FETCH_DIR BRANCH: $FETCH_BRANCH"${CL_RST}
+cd $build_root/$FETCH_DIR
+git pull $FETCH_URL $FETCH_BRANCH
+cd $build_root
+# End
 
-
-patchdir="$build_root/system/keymaster" # Start patch1
-revertnr=dc06a0f
-echo -e ${CL_BLU}"PATCHING $patchdir"${CL_RST}
-cd $patchdir
-git revert --no-edit $revertnr
-cd $build_root # End patch1
-
-patchdir="$build_root/system/security/keystore" # Start patch2
-revertnr=6b8a2a3
-echo -e ${CL_BLU}"PATCHING $patchdir"${CL_RST}
-cd $patchdir
-git revert --no-edit $revertnr
-cd $build_root # End patch2
-
-patchdir="$build_root/system/security/keystore" # Start patch3
-revertnr=b926925
-echo -e ${CL_BLU}"PATCHING $patchdir"${CL_RST}
-cd $patchdir
-git revert --no-edit $revertnr
-cd $build_root # End patch3
+# Hack for build
+mkdir -p /1and/cm/out/target/product/terrapad803/obj/KERNEL_OBJ/usr
 
 echo -e ""
 echo -e ${CL_RED}"Applying patches"${CL_RST}

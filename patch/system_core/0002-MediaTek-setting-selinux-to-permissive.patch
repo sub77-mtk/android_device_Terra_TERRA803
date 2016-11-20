@@ -1,0 +1,27 @@
+From d6174cbf32fc2046017ed1ab43f180c68d14c0b6 Mon Sep 17 00:00:00 2001
+From: sub77 <sub77@ymail.com>
+Date: Sun, 20 Nov 2016 22:26:50 +0000
+Subject: [PATCH 2/9] MediaTek: setting selinux to permissive.
+
+Change-Id: I44b1c537bfa6b94c90dcdc52f9eea2d17bf864e3
+Signed-off-by: sub77 <sub77@ymail.com>
+---
+ init/init.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/init/init.cpp b/init/init.cpp
+index 61f4b7c..d77f42b 100755
+--- a/init/init.cpp
++++ b/init/init.cpp
+@@ -450,6 +450,8 @@ static selinux_enforcing_status selinux_status_from_cmdline() {
+ 
+ static bool selinux_is_enforcing(void)
+ {
++	return false;  /*return false then set to permissive*/
++	
+     if (ALLOW_PERMISSIVE_SELINUX) {
+         return selinux_status_from_cmdline() == SELINUX_ENFORCING;
+     }
+-- 
+2.1.4
+

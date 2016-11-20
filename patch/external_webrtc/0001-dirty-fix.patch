@@ -1,0 +1,97 @@
+From a24033100e8e434598a5cd0cadf214685337e817 Mon Sep 17 00:00:00 2001
+From: sub77 <sub77@ymail.com>
+Date: Sun, 20 Nov 2016 21:51:09 +0000
+Subject: [PATCH] dirty fix
+
+Change-Id: I5baa8f9b6358c9d7d1091bc29807be4ab600956a
+---
+ webrtc/modules/audio_processing/audio_processing_impl.cc   | 9 +++++----
+ webrtc/modules/audio_processing/audio_processing_impl.h    | 6 +++---
+ webrtc/modules/audio_processing/include/audio_processing.h | 6 +++---
+ 3 files changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/webrtc/modules/audio_processing/audio_processing_impl.cc b/webrtc/modules/audio_processing/audio_processing_impl.cc
+index 744309c..8d7432d 100644
+--- a/webrtc/modules/audio_processing/audio_processing_impl.cc
++++ b/webrtc/modules/audio_processing/audio_processing_impl.cc
+@@ -185,7 +185,7 @@ const size_t AudioProcessing::kNumNativeSampleRates =
+ const int AudioProcessing::kMaxNativeSampleRateHz = AudioProcessing::
+     kNativeSampleRatesHz[AudioProcessing::kNumNativeSampleRates - 1];
+ const int AudioProcessing::kMaxAECMSampleRateHz = kSampleRate16kHz;
+-
++#ifdef FUCKER
+ AudioProcessing* AudioProcessing::Create() {
+   Config config;
+   return Create(config, nullptr);
+@@ -205,7 +205,7 @@ AudioProcessing* AudioProcessing::Create(const Config& config,
+ 
+   return apm;
+ }
+-
++#endif
+ AudioProcessingImpl::AudioProcessingImpl(const Config& config)
+     : AudioProcessingImpl(config, nullptr) {}
+ 
+@@ -214,6 +214,7 @@ AudioProcessingImpl::AudioProcessingImpl(const Config& config,
+     : public_submodules_(new ApmPublicSubmodules()),
+       private_submodules_(new ApmPrivateSubmodules(beamformer)),
+       constants_(config.Get<ExperimentalAgc>().startup_min_volume,
++
+ #if defined(WEBRTC_ANDROID) || defined(WEBRTC_IOS)
+                  false,
+ #else
+@@ -1084,7 +1085,7 @@ int AudioProcessingImpl::StartDebugRecording(
+   return kUnsupportedFunctionError;
+ #endif  // WEBRTC_AUDIOPROC_DEBUG_DUMP
+ }
+-
++#ifdef FUCKER
+ int AudioProcessingImpl::StartDebugRecording(FILE* handle) {
+   // Run in a single-threaded manner.
+   rtc::CritScope cs_render(&crit_render_);
+@@ -1140,7 +1141,7 @@ int AudioProcessingImpl::StopDebugRecording() {
+   return kUnsupportedFunctionError;
+ #endif  // WEBRTC_AUDIOPROC_DEBUG_DUMP
+ }
+-
++#endif
+ EchoCancellation* AudioProcessingImpl::echo_cancellation() const {
+   // Adding a lock here has no effect as it allows any access to the submodule
+   // from the returned pointer.
+diff --git a/webrtc/modules/audio_processing/audio_processing_impl.h b/webrtc/modules/audio_processing/audio_processing_impl.h
+index b310896..a41845a 100644
+--- a/webrtc/modules/audio_processing/audio_processing_impl.h
++++ b/webrtc/modules/audio_processing/audio_processing_impl.h
+@@ -58,9 +58,9 @@ class AudioProcessingImpl : public AudioProcessing {
+   void SetExtraOptions(const Config& config) override;
+   void UpdateHistogramsOnCallEnd() override;
+   int StartDebugRecording(const char filename[kMaxFilenameSize]) override;
+-  int StartDebugRecording(FILE* handle) override;
+-  int StartDebugRecordingForPlatformFile(rtc::PlatformFile handle) override;
+-  int StopDebugRecording() override;
++  //int StartDebugRecording(FILE* handle) override;
++  //int StartDebugRecordingForPlatformFile(rtc::PlatformFile handle) override;
++  //int StopDebugRecording() override;
+ 
+   // Capture-side exclusive methods possibly running APM in a
+   // multi-threaded manner. Acquire the capture lock.
+diff --git a/webrtc/modules/audio_processing/include/audio_processing.h b/webrtc/modules/audio_processing/include/audio_processing.h
+index 9a3a4b3..3bd6626 100644
+--- a/webrtc/modules/audio_processing/include/audio_processing.h
++++ b/webrtc/modules/audio_processing/include/audio_processing.h
+@@ -426,9 +426,9 @@ class AudioProcessing {
+   // Same as above but uses an existing PlatformFile handle. Takes ownership
+   // of |handle| and closes it at StopDebugRecording().
+   // TODO(xians): Make this interface pure virtual.
+-  virtual int StartDebugRecordingForPlatformFile(rtc::PlatformFile handle) {
+-      return -1;
+-  }
++  //virtual int StartDebugRecordingForPlatformFile(rtc::PlatformFile handle) {
++  //    return -1;
++  //}
+ 
+   // Stops recording debugging information, and closes the file. Recording
+   // cannot be resumed in the same file (without overwriting it).
+-- 
+2.1.4
+

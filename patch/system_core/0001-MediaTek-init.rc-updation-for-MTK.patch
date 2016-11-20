@@ -1,0 +1,27 @@
+From a96539e49ad2c46a75d3806720331865c999eafd Mon Sep 17 00:00:00 2001
+From: sub77 <sub77@ymail.com>
+Date: Sun, 20 Nov 2016 22:22:45 +0000
+Subject: [PATCH 1/9] MediaTek: init.rc: updation for MTK.
+
+Change-Id: I3de5b3a0f667a99254d4a1054adb6016cf8d9ba1
+Signed-off-by: sub77 <sub77@ymail.com>
+---
+ rootdir/init.usb.rc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rootdir/init.usb.rc b/rootdir/init.usb.rc
+index 915d159..5df2587 100644
+--- a/rootdir/init.usb.rc
++++ b/rootdir/init.usb.rc
+@@ -15,7 +15,7 @@ on post-fs-data
+ service adbd /sbin/adbd --root_seclabel=u:r:su:s0
+     class core
+     socket adbd stream 660 system system
+-    disabled
++    enabled
+     seclabel u:r:adbd:s0
+ 
+ # adbd on at boot in emulator
+-- 
+2.1.4
+

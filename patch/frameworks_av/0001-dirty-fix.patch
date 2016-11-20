@@ -1,0 +1,35 @@
+From 0367488ebf64abe0981c38010e5cddc33b539b87 Mon Sep 17 00:00:00 2001
+From: sub77 <sub77@ymail.com>
+Date: Sun, 20 Nov 2016 21:52:22 +0000
+Subject: [PATCH] dirty fix
+
+Change-Id: Id4fa3963979bec5a15acc9114d56bf1f26442438
+---
+ media/libeffects/preprocessing/PreProcessing.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/media/libeffects/preprocessing/PreProcessing.cpp b/media/libeffects/preprocessing/PreProcessing.cpp
+index f48bac1..a9ea147 100644
+--- a/media/libeffects/preprocessing/PreProcessing.cpp
++++ b/media/libeffects/preprocessing/PreProcessing.cpp
+@@ -827,7 +827,7 @@ extern "C" int Session_CreateEffect(preproc_session_t *session,
+     ALOGV("Session_CreateEffect procId %d, createdMsk %08x", procId, session->createdMsk);
+ 
+     if (session->createdMsk == 0) {
+-        session->apm = webrtc::AudioProcessing::Create();
++        //session->apm = webrtc::AudioProcessing::Create();
+         if (session->apm == NULL) {
+             ALOGW("Session_CreateEffect could not get apm engine");
+             goto error;
+@@ -837,7 +837,7 @@ extern "C" int Session_CreateEffect(preproc_session_t *session,
+              {kPreprocDefaultSr, kPreProcDefaultCnl},
+              {kPreprocDefaultSr, kPreProcDefaultCnl},
+              {kPreprocDefaultSr, kPreProcDefaultCnl}}};
+-        session->apm->Initialize(processing_config);
++        //session->apm->Initialize(processing_config);
+         session->procFrame = new webrtc::AudioFrame();
+         if (session->procFrame == NULL) {
+             ALOGW("Session_CreateEffect could not allocate audio frame");
+-- 
+2.1.4
+
