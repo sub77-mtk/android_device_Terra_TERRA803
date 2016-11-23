@@ -9,8 +9,8 @@ on early-init
     setprop ro.mtk.hardware mt6582
 
 on init
-    export LD_PRELOAD "/system/lib/libxlog.so /system/lib/libmt6582.so"
-    
+    export LD_PRELOAD "libxlog.so"
+
     mkdir /protect_f 0771 system system
     mkdir /protect_s 0771 system system
 
@@ -517,9 +517,6 @@ on boot
    chown root /remount.sh
    chmod 700 /remount.sh
    exec /remount.sh
-
-    # xlog
-    start xlogboot
 
     chown root system /sys/module/page_alloc/parameters/dump_order_threshold
     chmod 0664 /sys/module/page_alloc/parameters/dump_order_threshold

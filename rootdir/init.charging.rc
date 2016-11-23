@@ -554,8 +554,6 @@ on post-fs-data
 # -----------------------
 
 on ipo
-# xlog
-    start xlogboot
 
 # basic network init
     ifup lo

@@ -26,7 +26,9 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_PACKAGES += Torch
 
 PRODUCT_PACKAGES += \
-    libxlog
+    libmtk_symbols \
+	libxlog \
+	libstlport
 
 PRODUCT_PACKAGES += \
     lights.mt6582
