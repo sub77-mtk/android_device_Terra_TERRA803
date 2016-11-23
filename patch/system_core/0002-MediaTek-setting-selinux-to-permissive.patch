@@ -18,7 +18,7 @@ index 61f4b7c..d77f42b 100755
  static bool selinux_is_enforcing(void)
  {
 +	return false;  /*return false then set to permissive*/
-+	
++
      if (ALLOW_PERMISSIVE_SELINUX) {
          return selinux_status_from_cmdline() == SELINUX_ENFORCING;
      }

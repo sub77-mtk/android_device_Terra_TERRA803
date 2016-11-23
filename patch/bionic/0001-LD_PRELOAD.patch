@@ -1,27 +1,25 @@
-From f4e9d46ef4f5158b050367a23978b6e098cc8057 Mon Sep 17 00:00:00 2001
+From 2328afb612575caad7314e96971c1cf1ea763d16 Mon Sep 17 00:00:00 2001
 From: sub77 <sub77@ymail.com>
-Date: Wed, 23 Nov 2016 11:19:14 +0000
+Date: Wed, 23 Nov 2016 11:28:37 +0000
 Subject: [PATCH] LD_PRELOAD
 
-Change-Id: I90ebe03c8971ab236ccf833f88bcb237b3c21865
+Change-Id: Icf2e4e926adeb3e5a8666ceeff01b1d031f5766e
 ---
- libc/bionic/libc_init_common.cpp | 2 --
- 1 file changed, 2 deletions(-)
+ libc/bionic/libc_init_common.cpp | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/libc/bionic/libc_init_common.cpp b/libc/bionic/libc_init_common.cpp
-index 71c0b5f..da5bb7c 100644
+index 4f1226d..da5bb7c 100644
 --- a/libc/bionic/libc_init_common.cpp
 +++ b/libc/bionic/libc_init_common.cpp
-@@ -241,9 +241,7 @@ static bool __is_unsafe_environment_variable(const char* name) {
+@@ -241,7 +241,6 @@ static bool __is_unsafe_environment_variable(const char* name) {
      "LD_DYNAMIC_WEAK",
      "LD_LIBRARY_PATH",
      "LD_ORIGIN_PATH",
 -    "LD_PRELOAD",
      "LD_PROFILE",
--    "LD_SHIM_LIBS",
      "LD_SHOW_AUXV",
      "LD_USE_LOAD_BIAS",
-     "LOCALDOMAIN",
 -- 
 2.1.4
 
