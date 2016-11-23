@@ -16,7 +16,8 @@
 
 INTERNAL_MTK_BOOTIMAGE_ARGS := \
 		--kernel $(INSTALLED_KERNEL_TARGET) \
-		--ramdisk $(INSTALLED_RAMDISK_TARGET)
+		--ramdisk $(INSTALLED_RAMDISK_TARGET) \
+		--mtk boot
 
 $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG)\
 		$(INSTALLED_RAMDISK_TARGET) $(INSTALLED_KERNEL_TARGET)
@@ -29,7 +30,8 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG)\
 
 INTERNAL_MTK_RECOVERYIMAGE_ARGS := \
 		--kernel $(recovery_kernel) \
-		--ramdisk $(recovery_ramdisk)
+		--ramdisk $(recovery_ramdisk) \
+		--mtk recovery
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) $(recovery_kernel)
