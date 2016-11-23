@@ -1,18 +1,18 @@
-From ed5974cc856db4b798a0540b990288491b4a312e Mon Sep 17 00:00:00 2001
+From 61e58ab2167860e2fb9a9447ef5fa6ef7a3302a7 Mon Sep 17 00:00:00 2001
 From: sub77 <sub77@ymail.com>
-Date: Wed, 16 Nov 2016 04:33:47 +0000
-Subject: [PATCH] Add Time to Release Build ID
+Date: Wed, 7 Sep 2016 00:26:58 +0200
+Subject: [PATCH] Add time to zip
 
-Change-Id: I81e68c474e9f056cedeb37ffaec971ba09a16370
+Change-Id: I59419151fe12ad0429f126eb895d3544e0202c77
 ---
  config/common.mk | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/config/common.mk b/config/common.mk
-index 6c4d8f9..e8b594c 100644
+index ac38130..7f5e059 100644
 --- a/config/common.mk
 +++ b/config/common.mk
-@@ -345,9 +345,9 @@ ifeq ($(CM_BUILDTYPE), RELEASE)
+@@ -316,9 +316,9 @@ ifeq ($(CM_BUILDTYPE), RELEASE)
      endif
  else
      ifeq ($(CM_VERSION_MAINTENANCE),0)
@@ -24,7 +24,7 @@ index 6c4d8f9..e8b594c 100644
      endif
  endif
  
-@@ -376,7 +376,7 @@ ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
+@@ -344,7 +344,7 @@ ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
          CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
          TARGET_VENDOR_RELEASE_BUILD_ID := $(CM_EXTRAVERSION)
        else
@@ -34,5 +34,5 @@ index 6c4d8f9..e8b594c 100644
      else
        TARGET_VENDOR_RELEASE_BUILD_ID := $(TARGET_VENDOR_RELEASE_BUILD_ID)
 -- 
-2.1.4
+2.7.4
 
